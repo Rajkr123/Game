@@ -1,0 +1,15 @@
+{
+  "name": "game",
+  "version": "1.0.0",
+  "description": "A simple interactive game",
+  "main": "index.html",
+  "scripts": {
+    "start": "echo 'Game is ready to play!'"
+  },
+  "keywords": [
+    "game",
+    "interactive"
+  ],
+  "author": "Rajkr123",
+  "license": "MIT"
+}
