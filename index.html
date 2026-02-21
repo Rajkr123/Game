@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            max-width: 500px;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 2.5em;
+        }
+        p {
+            color: #666;
+            font-size: 1.1em;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+        .btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            margin: 10px;
+        }
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+        .game-area {
+            margin-top: 30px;
+            min-height: 200px;
+            background: #f0f0f0;
+            border-radius: 10px;
+            padding: 20px;
+            display: none;
+        }
+        .game-area.active {
+            display: block;
+        }
+        .score {
+            font-size: 1.5em;
+            margin: 10px 0;
+            color: #667eea;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎮 Game</h1>
+        <p>Welcome to an awesome game project! Click the button below to start playing.</p>
+        <button class="btn" onclick="startGame()">Start Game</button>
+        <button class="btn" onclick="resetGame()">Reset</button>
+        
+        <div class="game-area" id="gameArea">
+            <h2>Score: <span id="score">0</span></h2>
+            <p>Click the button to earn points!</p>
+            <button class="btn" onclick="addPoint()">Click Me!</button>
+        </div>
+    </div>
+
+    <script>
+        let score = 0;
+        
+        function startGame() {
+            document.getElementById('gameArea').classList.add('active');
+            score = 0;
+            updateScore();
+        }
+        
+        function addPoint() {
+            score++;
+            updateScore();
+        }
+        
+        function resetGame() {
+            score = 0;
+            document.getElementById('gameArea').classList.remove('active');
+            updateScore();
+        }
+        
+        function updateScore() {
+            document.getElementById('score').textContent = score;
+        }
+    </script>
+</body>
+</html>
